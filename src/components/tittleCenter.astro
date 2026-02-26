@@ -1,0 +1,19 @@
+---
+const {
+    Tittle,
+    Subtitle
+} = Astro.props
+---
+
+
+<div class="mt-20 mb-16 md:mt-32 md:mb-20 text-center px-4">
+  <h2 class="text-[10px] md:text-xs font-black uppercase tracking-[0.3em] md:tracking-[0.5em] text-blue-600 mb-4">
+    {Subtitle}
+  </h2>
+
+  <h3 class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-black uppercase leading-[0.9] break-words max-w-4xl mx-auto">
+    {Tittle}
+  </h3>
+
+  <div class="w-12 md:w-20 h-1.5 md:h-2 bg-blue-600 mx-auto mt-6"></div>
+</div>

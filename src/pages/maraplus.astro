@@ -1,0 +1,460 @@
+---
+import '../styles/global.css';
+import Layout from "../layouts/Layout.astro"
+import Navbar from '../components/navbar.astro';
+import Footer from '../components/footer.astro';
+import WelcomePage from '../components/welcomePage.astro';
+import DialogMessage from '../components/dialogMessage.astro';
+import InfoProjectMaraplus from '../components/infoProjectMaraplus.astro';
+import ProjectMaraplus from '../components/projectMaraplus.astro';
+
+const projects = [
+    {
+        title: "Avisor",
+        category: "App Web",
+        problem: `
+            MaraPlus no es simplemente una sucursal aislada, sino una corporación 
+            compuesta por un grupo de tiendas donde la administración y los procesos 
+            se manejan de forma independiente en cada sede.
+
+            Anteriormente, cuando los departamentos (como Compras e Inventario) necesitaban 
+            consultar la existencia de un producto específico en toda la red, debían 
+            iniciar sesión individualmente en el sistema de cada tienda para verificar el stock. 
+            En un escenario de 10 sucursales, este método manual convertía una consulta 
+            rutinaria en un proceso extremadamente lento y poco eficiente.
+        `,
+        solution: `
+            Se desarrolló una aplicación en TypeScript que funciona como una tarea programada (cron job). 
+            Este script se ejecuta automáticamente en intervalos definidos para recolectar 
+            el inventario de cada sucursal y centralizarlo en un repositorio de datos masivo. 
+            
+            Gracias a esto, ahora es posible consultar la existencia real de cualquier 
+            producto en toda la red de MaraPlus de manera unificada. Para gestionar esta información, 
+            se implementó una API REST. Esta infraestructura permite controlar el acceso a los datos, 
+            garantizando que solo el personal autorizado pueda visualizar el inventario global en milisegundos. 
+            Finalmente, la información se expone a través de una interfaz amigable.
+        `,
+        stack: [
+            "Typescript",
+            "NodeJs",
+            "NodeJs",
+            "apollo GraphQL",
+            "Angular", 
+            "PostgreSQL", 
+            "Docker"
+        ],
+        time: "1 Dia",
+        participation: "Backend & Frontend",
+        evidence: [
+            "/project_imgs/avisor/avisor_login.png",
+            "/project_imgs/avisor/avisor_home.png",
+            "/project_imgs/avisor/avisor_search.png",
+            "/project_imgs/avisor/avisor_data.png",
+        ]
+    },
+    {
+        title: "KCL",
+        category: "App Web",
+        problem: `
+            Siguiendo un esquema similar al de Avisor, el objetivo fue centralizar la información 
+            no solo del grupo de sucursales MaraPlus, sino también de Dromarko y KMplus. De esta manera, 
+            se consolidaron las operaciones de todas estas entidades en una única fuente de datos 
+            general y unificada.
+        `,
+        solution: `
+            Tras consolidar el volumen de información de los grupos MaraPlus, Dromarko y KMplus, 
+            se desarrolló un servicio web encargado de suministrar dicha data. 
+            Para garantizar la seguridad, se implementó una interfaz protegida mediante 
+            autenticación por tokens, asegurando que solo el personal autorizado con credenciales 
+            asignadas pueda acceder y visualizar los datos privados gestionados por la plataforma.
+        `,
+        stack: [
+            "Typescript",
+            "NestJS",
+            "React",
+            "Tailwindcss",
+            "PostgreSQL", 
+            "Docker"
+        ],
+        time: "2 Dia",
+        participation: "Backend & Frontend",
+        evidence: [
+            "project_imgs/kcl/login.png",
+            "project_imgs/kcl/kcl_home.png",
+            "/project_imgs/kcl/data.png",
+            "/project_imgs/kcl/grafica.png"
+        ]
+    },
+    {
+        title: "FacMarKo",
+        category: "Script - App",
+        problem: `
+            Consideremos un escenario de 100 pedidos diarios que deben ser facturados en el sistema. 
+            Con un equipo de apenas dos o tres personas dedicadas a esta tarea, y estimando que cada factura 
+            requiere aproximadamente 8 minutos de procesamiento manual, el volumen 
+            total de trabajo asciende a 13 horas continuas.
+
+            Bajo este esquema, si la carga se distribuye equitativamente entre tres personas, 
+            cada una debería dedicar 4.3 horas de su jornada exclusivamente a la facturación 
+            para cubrir la demanda diaria.
+        `,
+        solution: `
+            A nivel local, se implementó un CronJob (tarea programada) que detecta automáticamente 
+            los pedidos pendientes de facturación. Este script transforma los datos externos en un 
+            formato compatible con el sistema de la droguería, procesando automáticamente cálculos de costos, 
+            precios y validaciones. Al generar registros genuinos y listos para procesar, 
+            se elimina la carga operativa manual: ahora, el personal de facturación solo debe 
+            "Guardar e Imprimir" los documentos finales. 
+            
+            Consideremos la diferencia en el cálculo: ahora, un pedido se procesa íntegramente en menos 
+            de un minuto, generando la factura de forma automática y dejándola lista 
+            para su visualización en el sistema. El personal solo debe validar, hacer clic en "Guardar" y ¡listo!
+            El pedido queda facturado formalmente.
+
+            Gracias a esta automatización, en menos de dos minutos es posible procesar múltiples 
+            pedidos de forma simultánea, eliminando el cuello de botella anterior y transformando 
+            horas de trabajo manual en una operación casi instantánea.
+        `,
+        stack: [
+            "Typescript",
+            "NodeJs",
+            "Docker"
+        ],
+        time: "1 Dia",
+        participation: "Script/App",
+        evidence: [
+            "project_imgs/facmarko/sync.png",
+            "project_imgs/facmarko/start.png"
+        ]
+    },
+    {
+        title: "Tasa Scraping",
+        category: "Script - App",
+        problem: `
+            En Venezuela, la volatilidad de la tasa de cambio es constante; el valor fluctúa de forma impredecible
+            incluso varias veces en un mismo día. Actualmente, el sistema de facturación en USD (dólares)
+            de cada sucursal de MaraPlus requiere el valor actualizado en Bolívares para realizar las conversiones
+            legales. Sin embargo, actualizar esta tasa diariamente de forma manual en cada una de las sedes 
+            se ha convertido en una tarea operativa sumamente tediosa.
+        `,
+        solution: `
+            Se implementó en cada sucursal un CronJob desarrollado en TypeScript, el cual se ejecuta 
+            automáticamente en horarios específicos. Este proceso activa una función de web scraping 
+            que carga el contenido de la página oficial del Banco Central de Venezuela (BCV) para 
+            localizar y extraer el valor oficial de la divisa. Una vez obtenido el dato, 
+            el script actualiza de forma automática el valor del dólar en el sistema de facturación, 
+            eliminando la necesidad de intervención manual y garantizando la precisión de la tasa.
+        `,
+        stack: [
+            "Typescript",
+            "NodeJs",
+            "Docker"
+        ],
+        time: "1 Dia",
+        participation: "Script/App",
+        evidence: [
+            "project_imgs/tasascraping/home.png",
+        ]
+    },
+    {
+        title: "Ping Plus",
+        category: "Script - Bot Telegram",
+        problem: `
+            Imaginemos una corporación con una estructura de red descentralizada, donde cada comercio o sucursal 
+            opera con su propio servidor independiente para gestionar datos locales. Ante esta arquitectura, 
+            surge una necesidad crítica: ¿Cómo verificar de forma rápida, eficiente 
+            la disponibilidad del servidor en la red?
+
+            En términos técnicos, el reto consiste en validar que cada servidor esté activo y responda 
+            a las solicitudes (que el servidor haga "ping"), asegurando así que la comunicación 
+            entre las sucursales y la matriz sea constante y sin interrupciones.
+        `,
+        solution: `
+            Se desarrolló un Bot de Telegram que actúa como centro de control para supervisar la infraestructura. 
+            Mediante comandos específicos, el bot activa eventos de validación en un servicio dedicado, 
+            instalado en cada sucursal, encargado de evaluar la disponibilidad de la tienda en tiempo real.
+        `,
+        stack: [
+            "Typescript",
+            "NodeJs",
+            "Docker",
+            "Telegram Bot"
+        ],
+        time: "1 Dia",
+        participation: "Script/App",
+        evidence: [
+            "project_imgs/pingplus/ping.png",
+            "project_imgs/pingplus/bots.png"
+        ]
+    },
+    {
+        title: "Disprocar & Panaderia",
+        category: "Aplicacion Web",
+        problem: `
+            Con la incorporación de líneas de productos frescos (carnes, pollo, etc.) y panaderia 
+            en el inventario de MaraPlus, surgió la necesidad crítica de implementar un sistema de monitoreo
+            especializado a cerca de estos productos para asi obtener informacion ideal para el 
+            'Análisis de rotación' - 'Monitoreo de disponibilidad en tiempo real' -
+            'Optimización de cadena de suministro'
+        `,
+        solution: `
+            Se implementó un servicio especializado dedicado al monitoreo transaccional de cada SKU. 
+            Este componente se encarga de procesar los movimientos de inventario y venta
+            para ejecutar el cálculo necesarios y distribuir la informacion al las interfaces correspondientes.
+        `,
+        stack: [
+            "Typescript",
+            "NodeJs",
+            "React",
+            "PostgreSQL"
+        ],
+        time: "1-5 Dia",
+        participation: "Backend",
+        evidence: [
+            "project_imgs/disprocar/home.png",
+            "project_imgs/disprocar/existencia.png",
+            "project_imgs/disprocar/ventas.png",
+            "project_imgs/panaderia/home.png"
+        ]
+    },
+    {
+        title: "I-ODC",
+        category: "Script - App",
+        problem: `
+            'Similar a algunos de los proyectos anteriores'. La mayoria de procesos que se ejecutan dentro 
+            del grupo MaraPlus son procesos que son manuales y regularmente tediosos por lo que surgio la idea de
+            automatizar la creacion de ordenes de compras segun los pedidos realizados a los proveedores
+            de parte del departamento de compras.
+        `,
+        solution: `
+            Se hizo un servicio que recolectaba los pedidos de cierta fecha
+            y asi procesarlos para generar la odc (Orde de Compra) y tener un calculo preciso de los precios,
+            costos y utilidad correspondiente segun las reglas y valores ingresado en las facturas o pedido. 
+
+            Con esta tarea automatica el departamento de compras puede procesar aun mas pedidos ya que 
+            se generan solos y no necesitan calcular costos ni valores correspondiente al precio y datos
+            de la compra, es basicamente 'Hago el pedido y listo!!'.
+        `,
+        stack: [
+            "Typescript",
+            "NodeJs",
+        ],
+        time: "3 Dia",
+        participation: "Script/App",
+        evidence: [
+            "project_imgs/iodc/pedido.png",
+            "project_imgs/iodc/logs.png",
+            "project_imgs/iodc/errores.png"
+        ]
+    },
+    {
+        title: "Mundial Sync",
+        category: "Script - App",
+        problem: `
+            Debido a la alianza comercial entre Seguros La Mundial y MaraPlus, 
+            surgió la necesidad crítica de sincronizar sus operaciones de venta. Cada vez que se emitía una póliza
+            en cualquier sucursal de MaraPlus, el personal de la aseguradora debía recibir una notificación 
+            inmediata con los datos del cliente.
+        `,
+        solution: `
+            Se implementó un servicio especializado en cada sucursal encargado de monitorear, las transacciones 
+            asociadas exclusivamente a Seguros La Mundial. Ante cada venta procesada, el sistema captura 
+            automáticamente los datos de la póliza y los transmite mediante el estándar Fetch API 
+            hacia los servidores de la aseguradora.
+        `,
+        stack: [
+            "Typescript",
+            "NodeJs",
+        ],
+        time: "1 Dia",
+        participation: "Script/App",
+        evidence: [
+            "project_imgs/syncmundial/lamundial.png",
+            "project_imgs/syncmundial/syncs.png"
+        ]
+    },
+    {
+        title: "Visor Web",
+        category: "Script - App",
+        problem: `
+            Este proyecto nace de la necesidad de modernizar los consultores en las farmacias MaraPlus. 
+            El sistema anterior se limitaba a mostrar precios y una interfaz básica de "monitor de almacén" 
+            para el movimiento de productos entre stock y piso de venta.
+        `,
+        solution: `
+            Se rediseñó la herramienta para transformar un consultor limitado en una plataforma integral que optimiza 
+            la visibilidad de inventarios y la experiencia en tienda. Más allá de una simple actualización, 
+            el sistema se desarrolló bajo una arquitectura escalable, evolucionando de un visor web estático 
+            a un Workspace unificado. 
+            Este nuevo entorno centraliza las herramientas operativas de MaraPlus, permitiendo la integración 
+            de múltiples módulos dentro de un mismo ecosistema digital, 
+            facilitando así la gestión operativa en un solo lugar.
+        `,
+        stack: [
+            "Typescript",
+            "NodeJs",
+            "NestJs",
+            "React",
+            "Docker",
+            "Nginx"
+        ],
+        time: "8 Dias",
+        participation: "Backend & Despliegue",
+        evidence: [
+            "project_imgs/visor/home.png",
+            "project_imgs/visor/precio.png",
+            "project_imgs/visor/monitor.png",
+            "project_imgs/visor/existenciamonitor.png",
+            "project_imgs/visor/buscador.png",
+            "project_imgs/visor/conf.png",
+            "project_imgs/visor/publicidad.png"
+        ]
+    },
+
+
+
+    {
+        title: "Dromarko Ubi",
+        category: "Script - App",
+        problem: `
+            
+        `,
+        solution: `
+            
+        `,
+        stack: [],
+        time: "8 Dias",
+        participation: "",
+        evidence: []
+    },
+    {
+        title: "AIDromarko",
+        category: "Script - App",
+        problem: `
+            
+        `,
+        solution: `
+            
+        `,
+        stack: [],
+        time: "8 Dias",
+        participation: "",
+        evidence: []
+    },
+    {
+        title: "MssqlPG Migrate",
+        category: "Script - App",
+        problem: `
+            
+        `,
+        solution: `
+            
+        `,
+        stack: [],
+        time: "8 Dias",
+        participation: "",
+        evidence: []
+    },
+    {
+    title: "Exe Plus",
+    category: "Script - App",
+    problem: `
+        
+    `,
+    solution: `
+        
+    `,
+    stack: [],
+    time: "8 Dias",
+    participation: "",
+    evidence: []
+    },
+    {
+    title: "Test",
+    category: "Script - App",
+    problem: `
+        
+    `,
+    solution: `
+        
+    `,
+    stack: [],
+    time: "8 Dias",
+    participation: "",
+    evidence: []
+    },
+];
+---
+
+<Layout>
+	<Navbar />
+    <main class="max-w-6xl mx-auto px-6">
+        <WelcomePage></WelcomePage>
+        <section id="proyectos" class="py-20 bg-white space-y-1">
+            {projects.map((project, index) => (
+                <div class="relative max-w-7xl mx-auto px-6 group">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-1">
+                        {
+                            index % 2 == 0
+                            ?
+                            <ProjectMaraplus
+                                dark={false},
+                                index={index},
+                                title={project.title},
+                                category={project.category}
+                            ></ProjectMaraplus>
+                            <DialogMessage 
+                                index={index} 
+                                title={project.title}
+                                problem={project.problem}
+                                solution={project.solution}
+                                evidence={project.evidence}
+                            ></DialogMessage>
+                            <InfoProjectMaraplus
+                                time={project.time},
+                                participation={project.participation},
+                                tech={project.stack}
+                                dark={index % 2 == 0}
+                            ></InfoProjectMaraplus>
+                            :
+                            <ProjectMaraplus
+                                dark={true},
+                                index={index},
+                                title={project.title},
+                                category={project.category}
+                            ></ProjectMaraplus>
+                            <DialogMessage 
+                                index={index} 
+                                title={project.title}
+                                problem={project.problem}
+                                solution={project.solution}
+                                evidence={project.evidence}
+                            ></DialogMessage>
+                            <InfoProjectMaraplus
+                                time={project.time},
+                                participation={project.participation},
+                                tech={project.stack},
+                                dark={index % 2 == 0}
+                            ></InfoProjectMaraplus>
+                        }
+                    </div>
+                </div>
+            ))}
+        </section>
+    </main>
+    <Footer></Footer>
+</Layout>
+
+<style>
+    img {
+        font-family: 'object-fit: cover;';
+    }
+    .columns-1 > div {
+        animation: reveal 0.6s ease-out forwards;
+        opacity: 0;
+    }
+    @keyframes reveal {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>

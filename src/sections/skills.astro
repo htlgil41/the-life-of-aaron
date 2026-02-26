@@ -1,0 +1,159 @@
+---
+
+interface Props {
+  Lenguajes: string[];
+  FrameworksBackends: string[];
+}
+
+const {
+  Lenguajes,
+  FrameworksBackends
+} = Astro.props
+---
+
+<section id="experiencia" class="py-24 bg-blue-600 -mx-4 px-4 md:-mx-[max(2rem,calc((100vw-72rem)/2))] md:px-[max(2rem,calc((100vw-72rem)/2))] text-white overflow-hidden relative">
+  
+  <div class="absolute top-0 right-0 text-[20rem] font-black text-white/5 select-none leading-none -translate-y-20 translate-x-20">
+    STACK
+  </div>
+
+  <div class="relative z-10">
+    <div class="mb-20">
+      <h2 class="text-xs font-black uppercase tracking-[0.5em] text-blue-200 mb-4">Conocimientos Técnicos</h2>
+      <h3 class="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black tracking-tighter leading-[0.9] uppercase wrap-break-word">
+        Herramientas 
+        <br class="block" /> 
+        <span class="flex items-center gap-2">
+          & <span class="text-black/30">Lenguajes</span>
+        </span>
+      </h3>
+      <p class="mt-8 text-xl text-blue-100 max-w-2xl font-light">
+        Mi ecosistema de desarrollo está diseñado para la escalabilidad.
+        Desde arquitecturas Backend robustas hasta interfaces Fullstack interactivas
+        (Construidas con ayuda de nuesta amiga la IA).
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-1">
+      
+      <div class="md:col-span-2 bg-white/10 backdrop-blur-md p-10 hover:bg-white/20 transition-all border border-white/10 group">
+        <div class="flex justify-between items-start mb-12">
+            <h4 class="text-2xl font-black uppercase italic tracking-tighter">Core Languages</h4>
+            <span class="text-4xl group-hover:rotate-12 transition-transform">🚀</span>
+        </div>
+        <div class="flex flex-wrap gap-4">
+          {Lenguajes.map((skill) => (
+            <span class="px-6 py-3 bg-black text-white text-sm font-black uppercase tracking-widest hover:bg-blue-500 transition-colors cursor-default">
+              {skill}
+            </span>
+          ))}
+        </div>
+      </div>
+      
+      <div class="bg-black p-10 border border-white/5 flex flex-col justify-between group">
+        <h4 class="text-2xl font-black uppercase italic tracking-tighter mb-8">Backend Ecosystem</h4>
+        <div class="space-y-4 text-sm font-bold text-blue-200/60 uppercase tracking-tighter">
+          {FrameworksBackends.map((f) => (
+            <p class="group-hover:text-white transition-colors text-blue-400">
+              {f}
+            </p>
+          ))}
+        </div>
+      </div>
+
+      <div class="bg-white text-black p-10 flex flex-col justify-between group">
+        <h4 class="text-2xl font-black uppercase italic tracking-tighter mb-8">Frontend & UI</h4>
+        <div class="flex flex-wrap gap-2">
+            {['HTML5','CSS3','Angular', 'Astro', 'TailwindCSS'].map(s => (
+                <span class="text-[10px] font-black uppercase border-2 border-black px-2 py-1">{s}</span>
+            ))}
+        </div>
+        <p class="mt-8 text-xs font-bold text-gray-400 uppercase leading-tight italic">
+            Creando interfaces que no solo se ven bien, sino que rinden al máximo.
+        </p>
+      </div>
+
+      <div class="md:col-span-2 bg-blue-900/50 backdrop-blur-sm p-10 border border-white/10 flex flex-col md:flex-row gap-8 items-center">
+        <div class="md:w-1/3 text-center md:text-left">
+            <h4 class="text-5xl font-black tracking-tighter uppercase italic leading-none">DB & <br/> MORE</h4>
+        </div>
+        <div class="md:w-2/3 grid grid-cols-2 gap-4">
+            <div class="space-y-1">
+                <span class="text-blue-300 text-[10px] font-black uppercase tracking-widest">Database</span>
+                <p class="font-bold uppercase text-sm">PostgreSQL / Mssql SQLServer / MongoDB / Redis</p>
+            </div>
+            <div class="space-y-1">
+                <span class="text-blue-300 text-[10px] font-black uppercase tracking-widest">TOOLS</span>
+                <p class="font-bold uppercase text-sm">Docker / Git</p>
+            </div>
+        </div>
+      </div>
+
+      <div class="md:col-span-2 bg-blue-900/50 backdrop-blur-sm p-10 border border-white/10 flex flex-col md:flex-row gap-8 items-center">
+        <div class="md:w-1/3 text-center md:text-left">
+            <h4 class="text-5xl font-black tracking-tighter uppercase italic leading-none">DATA <br>BASES</h4>
+        </div>
+        <div class="md:w-2/3 grid grid-cols-2 gap-4">
+            <div class="space-y-1">
+                <span class="text-blue-300 text-[10px] font-black uppercase tracking-widest">SQL</span>
+                <p class="font-bold uppercase text-sm">PostgreSQL / SQLServer / MySQL</p>
+            </div>
+
+            <div class="space-y-1">
+                <span class="text-blue-300 text-[10px] font-black uppercase tracking-widest">NoSQL</span>
+                <p class="font-bold uppercase text-sm">MongoDB / Redis</p>
+            </div>
+        </div>
+      </div>
+      <div class="bg-white text-black p-10 flex flex-col justify-between group">
+        <h4 class="text-2xl font-black uppercase italic tracking-tighter mb-8">DevOps & Cloud / Web Servers</h4>
+        <div class="flex flex-wrap gap-2">
+            {['Docker','Docker Compose', 'Nginx'].map(s => (
+                <span class="text-[10px] font-black uppercase border-2 border-black px-2 py-1">{s}</span>
+            ))}
+        </div>
+        <p class="mt-8 text-xs font-bold text-gray-400 uppercase leading-tight italic">
+            Creando interfaces que no solo se ven bien, sino que rinden al máximo.
+        </p>
+      </div>
+
+      <div class="md:col-span-3 bg-linear-to-br from-gray-900 to-black p-10 border border-white/10 group overflow-hidden relative">
+        <div class="relative z-10 flex flex-col md:flex-row justify-between gap-12">
+            
+            <div class="md:w-1/4">
+                <h4 class="text-3xl font-black uppercase italic tracking-tighter leading-none mb-4">
+                    Dev <br /> <span class="text-blue-500">Tools</span>
+                </h4>
+                <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest leading-tight">
+                    El arsenal que garantiza la calidad y eficiencia del ciclo de desarrollo.
+                </p>
+            </div>
+
+            <div class="md:w-3/4 grid grid-cols-2 md:grid-cols-4 gap-6">
+                {[
+                    {name: 'Git', desc: 'Version Control'},
+                    {name: 'Postman', desc: 'API Testing'},
+                    {name: 'Insomnia', desc: 'REST Client'},
+                    {name: 'VS Code', desc: 'Main IDE'},
+                    {name: 'DBeaver', desc: 'SQL Tool'},
+                ].map(tool => (
+                    <div class="group/tool cursor-default">
+                        <span class="block text-white font-black text-sm uppercase tracking-tighter group-hover/tool:text-blue-500 transition-colors">
+                            {tool.name}
+                        </span>
+                        <span class="block text-[9px] text-gray-600 font-bold uppercase italic tracking-widest">
+                            {tool.desc}
+                        </span>
+                    </div>
+                ))}
+            </div>
+          </div>
+
+          <div class="absolute right-0 bottom-0 opacity-[0.03] text-[8rem] font-black italic select-none pointer-events-none -mb-10">
+              TOOLKIT
+          </div>
+      </div>
+
+    </div>
+  </div>
+</section>

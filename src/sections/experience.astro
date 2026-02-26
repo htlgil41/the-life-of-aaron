@@ -1,0 +1,73 @@
+---
+import CardExperience from "../components/cardExperience.astro";
+
+
+---
+
+<div class="max-w-5xl mx-auto space-y-12">
+
+  <CardExperience
+    Url={null}
+    Company="Farmacia y multitienda Las Rubios MaraPlus"
+    TimeCompany="2023 - 2023"
+    Puesto="Soporte Tecnico"
+    Task=`
+      Soporte técnico capacitado en la instalación, configuración y mantenimiento de equipos, 
+      redes locales (LAN) y sistemas operativos (Windows).
+    `
+    Realized={[
+      "Mantenimiento de equipos",
+      "Instalacion de sistemas operativos (Windows)",
+      "Instalaciones de redes (Cableado)",
+      "Administracio (Basica) de servidores (Windows)"
+    ]}
+    EndInfo=""
+  ></CardExperience>
+
+  <CardExperience
+    Url="/maraplus"
+    Company="Grupo Maraplus"
+    TimeCompany="2024 - Actualidad"
+    Puesto="Desarrollador Backend - FullStack"
+    Task=`
+      Responsable del liderazgo técnico en la mayoría de los proyectos de desarrollo de software 
+      y automatización de procesos dentro de la corporación. Mi labor consistió en analizar las 
+      necesidades operativas de diversos departamentos y traducirlas en soluciones de código eficientes, 
+      con el objetivo de optimizar los flujos de trabajo, mejorar la seguridad de la información y agilizar 
+      las tareas diarias de los equipos.
+    `
+    Realized={[
+      `
+        Aplicacion web del inventario y venta general de cada sucuersal MaraPlus distribuida por todo el
+        territorio.
+      `,
+      `
+        Script/App automatico de recoleccion de datos para generar reportes dinamicos a partir
+        de Querys ejecutados en las bases de datos. Por ejemplo reporte de ventas
+        de cierta fecha de cada sucursal MaraPlus en un exel.
+      `,
+      `
+        Script/App automatico para realizar Web-Scraping en la pagina oficial del BCV
+        para obtener le valor real y legal de la tasa en $ para actualizar
+        la moneda al cobrar en cada sucursal MaraPlus.
+      `,
+      `
+        Script/App automatico para generar ordenes de compras de cada sucursal Maraplus
+        segun los pedidos.
+      `,
+      `
+        Aplicacion web de ventas y utilidad resumido de todas las sucursales MaraPlus
+        llamada Aplicacion KCL. (Tambien para Dromarko y KmPlus)
+      `,
+      `
+        Script hecho en Go para migrar milles y millones de datos centralizados entre multiples
+        bases de datos y mantener la informacion privada de la corporacion en servidores privados
+        en la nube con toda una data centralizada.
+      `
+    ]}
+    EndInfo=`
+       Podría seguir extendiéndome, pero estas son algunas de las tareas destacadas que he liderado en este rol.
+    `
+  ></CardExperience>
+
+</div>

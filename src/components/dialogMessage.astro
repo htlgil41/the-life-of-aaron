@@ -1,0 +1,128 @@
+---
+interface Props{
+    index: number;
+    title: string;
+    problem: string;
+    solution: string;
+    evidence: string[];
+}
+
+const {
+    index,
+    title,
+    problem,
+    solution,
+    evidence
+} = Astro.props;
+---
+
+<dialog 
+    id={`modal-${index}`} 
+    class="fixed inset-0 m-0 md:m-auto backdrop:backdrop-blur-md bg-transparent p-0 md:p-4 w-full h-full md:h-auto md:max-w-4xl lg:max-w-5xl outline-none"
+>
+    <div class="bg-white w-full h-full md:h-auto md:max-h-[90vh] flex flex-col overflow-hidden md:rounded-3xl md:border md:border-black/10 shadow-2xl">
+        
+        <div class="sticky top-0 z-20 flex justify-between items-center p-6 md:p-8 border-b border-black/5 bg-white/80 backdrop-blur-md">
+            <div>
+                <h3 class="text-2xl md:text-3xl font-black text-zinc-900 uppercase tracking-tighter leading-none">
+                    {title}
+                </h3>
+                <p class="text-[9px] md:text-[10px] text-blue-600 font-bold uppercase tracking-[0.3em] mt-2">Expediente de Proyecto</p>
+            </div>
+            <button 
+                onclick={`document.getElementById('modal-${index}').close()`}
+                class="bg-zinc-100 hover:bg-zinc-200 text-zinc-900 rounded-full w-10 h-10 flex items-center justify-center text-2xl transition-all"
+            >
+                &times;
+            </button>
+        </div>
+        
+        <div class="overflow-y-auto custom-scrollbar flex-1">
+            
+            <div class="grid grid-cols-1 md:grid-cols-2">
+                <div class="p-8 md:p-12 border-b md:border-r border-black/5 bg-zinc-50/30">
+                    <h4 class="text-xl font-black uppercase italic tracking-tighter mb-4 flex items-center gap-3 text-zinc-800">
+                        <span class="text-blue-600 font-mono text-sm">[!]</span> La Necesidad
+                    </h4>
+                    <p class="text-zinc-600 text-base md:text-lg leading-relaxed">
+                        {problem}
+                    </p>
+                </div>
+
+                <div class="p-8 md:p-12 border-b border-black/5 bg-blue-50/20">
+                    <h4 class="text-xl font-black uppercase italic tracking-tighter mb-4 flex items-center gap-3 text-zinc-800">
+                        <span class="text-blue-500 font-mono text-sm">[#]</span> La Solución
+                    </h4>
+                    <p class="text-zinc-600 text-base md:text-lg leading-relaxed">
+                        {solution}
+                    </p>
+                </div>
+            </div>
+
+            <div class="p-6 md:p-12 bg-white">
+                <div class="flex justify-between items-end mb-8">
+                    <h4 class="text-xl font-black uppercase tracking-tighter text-zinc-900">
+                        <span class="text-blue-600">/</span> Evidencia Visual
+                    </h4>
+                </div>
+
+                <div class="columns-1 sm:columns-2 gap-8 space-y-6">
+                    {evidence.map((img, idx) => (
+                        <div class="break-inside-avoid group relative bg-[#dddddd70] border border-zinc-100 rounded-2xl overflow-hidden transition-all shadow-sm">
+                            <div class="aspect-4/3 w-full overflow-hidden">
+                                <img 
+                                    src={img} 
+                                    alt={`Vista ${idx + 1}`}
+                                    loading="lazy"
+                                    class="w-full h-full object-contain" 
+                                />
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            <div class="p-12 text-center bg-zinc-50 border-t border-black/5">
+                <p class="text-zinc-400 text-[10px] uppercase tracking-[0.4em]">
+                    Fin del Reporte Técnico
+                </p>
+            </div>
+        </div>
+    </div>
+</dialog>
+
+<style>
+    dialog {
+        max-width: none;
+        max-height: none;
+    }
+    dialog[open] {
+        display: flex;
+        flex-direction: column;
+    }
+    @media (max-width: 767px) {
+        dialog[open] {
+            animation: mobileSlideUp 0.5s cubic-bezier(0.32, 0.72, 0, 1);
+        }
+    }
+    @media (min-width: 768px) {
+        dialog[open] {
+            animation: modalFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+    }
+    @keyframes mobileSlideUp {
+        from { transform: translateY(100%); }
+        to { transform: translateY(0); }
+    }
+    @keyframes modalFadeIn {
+        from { opacity: 0; transform: scale(0.95); }
+        to { opacity: 1; transform: scale(1); }
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+        width: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #d4d4d8;
+        border-radius: 10px;
+    }
+</style>
