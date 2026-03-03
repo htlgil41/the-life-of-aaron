@@ -11,149 +11,307 @@ const {
 } = Astro.props
 ---
 
-<section id="experiencia" class="py-24 bg-blue-600 -mx-4 px-4 md:-mx-[max(2rem,calc((100vw-72rem)/2))] md:px-[max(2rem,calc((100vw-72rem)/2))] text-white overflow-hidden relative">
+<section id="experiencia" class="py-24 bg-blue-600 rounded-xl -mx-4 px-4 md:-mx-[max(2rem,calc((100vw-72rem)/2))] md:px-[max(2rem,calc((100vw-72rem)/2))] text-white overflow-hidden relative font-sans">
   
-  <div class="absolute top-0 right-0 text-[20rem] font-black text-white/5 select-none leading-none -translate-y-20 translate-x-20">
-    STACK
+  <div class="absolute top-0 right-0 text-[18rem] font-black text-white/5 select-none leading-none -translate-y-16 translate-x-16 italic uppercase">
+    Stack
   </div>
 
   <div class="relative z-10">
-    <div class="mb-20">
-      <h2 class="text-xs font-black uppercase tracking-[0.5em] text-blue-200 mb-4">Conocimientos Técnicos</h2>
-      <h3 class="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black tracking-tighter leading-[0.9] uppercase wrap-break-word">
-        Herramientas 
-        <br class="block" /> 
-        <span class="flex items-center gap-2">
-          & <span class="text-black/30">Lenguajes</span>
-        </span>
-      </h3>
-      <p class="mt-8 text-xl text-blue-100 max-w-2xl font-light">
-        Mi ecosistema de desarrollo está diseñado para la escalabilidad.
-        Desde arquitecturas Backend robustas hasta interfaces Fullstack interactivas
-        (Construidas con ayuda de nuesta amiga la IA).
-      </p>
+    <div class="mb-16">
+
+        <h2 class="text-xs font-black uppercase tracking-[0.5em] text-blue-200 mb-4">Tech Stack 2024</h2>
+        <h3 class="text-5xl md:text-8xl font-black tracking-tighter leading-[0.8] uppercase">
+            SOLUCIONES <br /> 
+            <span class="text-black/30 italic text-4xl md:text-7xl">SCALABLE & CLEAN</span>
+        </h3>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-1">
-      
-      <div class="md:col-span-2 bg-white/10 backdrop-blur-md p-10 hover:bg-white/20 transition-all border border-white/10 group">
-        <div class="flex justify-between items-start mb-12">
-            <h4 class="text-2xl font-black uppercase italic tracking-tighter">Core Languages</h4>
-            <span class="text-4xl group-hover:rotate-12 transition-transform">🚀</span>
-        </div>
-        <div class="flex flex-wrap gap-4">
-          {Lenguajes.map((skill) => (
-            <span class="px-6 py-3 bg-black text-white text-sm font-black uppercase tracking-widest hover:bg-blue-500 transition-colors cursor-default">
-              {skill}
-            </span>
-          ))}
-        </div>
-      </div>
-      
-      <div class="bg-black p-10 border border-white/5 flex flex-col justify-between group">
-        <h4 class="text-2xl font-black uppercase italic tracking-tighter mb-8">Backend Ecosystem</h4>
-        <div class="space-y-4 text-sm font-bold text-blue-200/60 uppercase tracking-tighter">
-          {FrameworksBackends.map((f) => (
-            <p class="group-hover:text-white transition-colors text-blue-400">
-              {f}
-            </p>
-          ))}
-        </div>
-      </div>
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-3 auto-rows-[minmax(320px,auto)]">
+        
+        <div class="md:col-span-8 rounded-2xl bg-slate-900/90 backdrop-blur-xl p-8 border border-white/10 group flex flex-col justify-between relative overflow-hidden shadow-2xl">
+            <div class="absolute -top-24 -left-24 w-48 h-48 bg-blue-600/20 rounded-full blur-[100px] group-hover:bg-blue-500/30 transition-colors duration-700"></div>
 
-      <div class="bg-white text-black p-10 flex flex-col justify-between group">
-        <h4 class="text-2xl font-black uppercase italic tracking-tighter mb-8">Frontend & UI</h4>
-        <div class="flex flex-wrap gap-2">
-            {['HTML5','CSS3','Angular', 'Astro', 'TailwindCSS'].map(s => (
-                <span class="text-[10px] font-black uppercase border-2 border-black px-2 py-1">{s}</span>
-            ))}
-        </div>
-        <p class="mt-8 text-xs font-bold text-gray-400 uppercase leading-tight italic">
-            Creando interfaces que no solo se ven bien, sino que rinden al máximo.
-        </p>
-      </div>
+            <div class="relative z-10">
+                <div class="flex justify-between items-end mb-10">
+                    <div>
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="w-2 h-2 bg-blue-500 rounded-full animate-pulse shadow-[0_0_10px_rgba(59,130,246,0.8)]"></span>
+                            <span class="text-[10px] font-black uppercase tracking-[0.4em] text-blue-400/80">System Foundation</span>
+                        </div>
+                        <h4 class="text-4xl font-black uppercase italic tracking-tighter text-white">
+                            Core <span class="text-slate-500">Stack</span>
+                        </h4>
+                    </div>
+                    <div class="hidden sm:block text-right">
+                        <span class="text-[10px] font-black uppercase italic text-slate-600 tracking-widest">Mastering the fundamentals</span>
+                    </div>
+                </div>
 
-      <div class="md:col-span-2 bg-blue-900/50 backdrop-blur-sm p-10 border border-white/10 flex flex-col md:flex-row gap-8 items-center">
-        <div class="md:w-1/3 text-center md:text-left">
-            <h4 class="text-5xl font-black tracking-tighter uppercase italic leading-none">DB & <br/> MORE</h4>
-        </div>
-        <div class="md:w-2/3 grid grid-cols-2 gap-4">
-            <div class="space-y-1">
-                <span class="text-blue-300 text-[10px] font-black uppercase tracking-widest">Database</span>
-                <p class="font-bold uppercase text-sm">PostgreSQL / Mssql SQLServer / MongoDB / Redis</p>
-            </div>
-            <div class="space-y-1">
-                <span class="text-blue-300 text-[10px] font-black uppercase tracking-widest">TOOLS</span>
-                <p class="font-bold uppercase text-sm">Docker / Git</p>
-            </div>
-        </div>
-      </div>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                    {Lenguajes.map((skill) => (
+                        <div class="group/icon relative flex flex-col items-center justify-center p-6 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-white/20 hover:bg-white/[0.07] transition-all duration-500 shadow-lg overflow-hidden">
+                            
+                            <div class="absolute inset-0 bg-gradient-to-b from-white/[0.02] to-transparent opacity-0 group-hover/icon:opacity-100 transition-opacity"></div>
 
-      <div class="md:col-span-2 bg-blue-900/50 backdrop-blur-sm p-10 border border-white/10 flex flex-col md:flex-row gap-8 items-center">
-        <div class="md:w-1/3 text-center md:text-left">
-            <h4 class="text-5xl font-black tracking-tighter uppercase italic leading-none">DATA <br>BASES</h4>
-        </div>
-        <div class="md:w-2/3 grid grid-cols-2 gap-4">
-            <div class="space-y-1">
-                <span class="text-blue-300 text-[10px] font-black uppercase tracking-widest">SQL</span>
-                <p class="font-bold uppercase text-sm">PostgreSQL / SQLServer / MySQL</p>
+                            <div class="relative z-10 flex flex-col items-center">
+                                <div class="relative mb-4">
+                                    <img 
+                                        src={`https://cdn.simpleicons.org/${skill.toLowerCase().replace(/\s+/g, '')}`} 
+                                        alt={skill} 
+                                        class="w-16 h-16 object-contain transition-all duration-500 group-hover/icon:scale-110 group-hover/icon:drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]" 
+                                    />
+                                </div>
+                                <span class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500 group-hover/icon:text-white transition-colors">
+                                    {skill}
+                                </span>
+                            </div>
+
+                            <div class="absolute bottom-1 w-1/4 h-[2px] bg-slate-700 group-hover/icon:bg-blue-500 group-hover/icon:w-1/2 transition-all duration-500"></div>
+                        </div>
+                    ))}
+                </div>
             </div>
 
-            <div class="space-y-1">
-                <span class="text-blue-300 text-[10px] font-black uppercase tracking-widest">NoSQL</span>
-                <p class="font-bold uppercase text-sm">MongoDB / Redis</p>
+            <div class="mt-12 flex items-center justify-between border-t border-white/5 pt-6">
+                <div class="flex gap-4">
+                    <div class="flex flex-col">
+                        <span class="text-[8px] font-black text-slate-500 uppercase tracking-tighter">Performance</span>
+                        <span class="text-[10px] font-bold text-white uppercase italic">Optimized</span>
+                    </div>
+                    <div class="flex flex-col border-l border-white/10 pl-4">
+                        <span class="text-[8px] font-black text-slate-500 uppercase tracking-tighter">Architecture</span>
+                        <span class="text-[10px] font-bold text-white uppercase italic">Clean Code</span>
+                    </div>
+                </div>
+                <div class="text-[2rem] font-black text-white/[0.03] italic select-none">
+                    01
+                </div>
             </div>
         </div>
-      </div>
-      <div class="bg-white text-black p-10 flex flex-col justify-between group">
-        <h4 class="text-2xl font-black uppercase italic tracking-tighter mb-8">DevOps & Cloud / Web Servers</h4>
-        <div class="flex flex-wrap gap-2">
-            {['Docker','Docker Compose', 'Nginx'].map(s => (
-                <span class="text-[10px] font-black uppercase border-2 border-black px-2 py-1">{s}</span>
-            ))}
-        </div>
-        <p class="mt-8 text-xs font-bold text-gray-400 uppercase leading-tight italic">
-            Creando interfaces que no solo se ven bien, sino que rinden al máximo.
-        </p>
-      </div>
+        
+        <div class="md:col-span-4 rounded-2xl bg-white text-black p-8 flex flex-col justify-between shadow-2xl group relative overflow-hidden border border-slate-200">
+    
+            <div class="absolute -top-6 -right-6 text-9xl font-black text-slate-100 italic select-none pointer-events-none uppercase">
+                UI
+            </div>
 
-      <div class="md:col-span-3 bg-linear-to-br from-gray-900 to-black p-10 border border-white/10 group overflow-hidden relative">
-        <div class="relative z-10 flex flex-col md:flex-row justify-between gap-12">
-            
-            <div class="md:w-1/4">
-                <h4 class="text-3xl font-black uppercase italic tracking-tighter leading-none mb-4">
-                    Dev <br /> <span class="text-blue-500">Tools</span>
-                </h4>
-                <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest leading-tight">
-                    El arsenal que garantiza la calidad y eficiencia del ciclo de desarrollo.
+            <div class="relative z-10">
+                <div class="flex justify-between items-center mb-8">
+                    <h4 class="text-3xl font-black uppercase italic tracking-tighter leading-none">
+                        Frontend <br/> <span class="text-blue-600">& UI</span>
+                    </h4>
+                    <div class="h-10 w-10 rounded-full bg-slate-50 flex items-center justify-center border border-slate-100">
+                        <span class="text-lg">✨</span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    {['React', 'Angular', 'Astro', 'TailwindCSS'].map(s => (
+                        <div class="group/item relative flex flex-col items-center justify-center p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:border-black hover:bg-white transition-all duration-500 hover:shadow-lg transform hover:-translate-y-1">
+                            
+                            <div class="relative">
+                                <img 
+                                    src={`https://cdn.simpleicons.org/${s.toLowerCase().replace(/\s+/g, '')}`} 
+                                    alt={s} 
+                                    class="w-12 h-12 object-contain group-hover/item:scale-110 transition-transform duration-500" 
+                                />
+                                <div class="absolute -top-1 -right-1 w-2 h-2 bg-blue-500 rounded-full scale-0 group-hover/item:scale-100 transition-transform duration-300"></div>
+                            </div>
+
+                            <span class="text-[10px] font-black uppercase tracking-widest text-slate-400 mt-4 group-hover/item:text-black transition-colors">
+                                {s}
+                            </span>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            <div class="mt-8 pt-6 border-t border-slate-100">
+                <div class="flex items-center gap-3 mb-3">
+                    <span class="text-[9px] font-black uppercase px-2 py-0.5 bg-black text-white italic">Pixel Perfect</span>
+                    <span class="text-[9px] font-black uppercase px-2 py-0.5 bg-blue-100 text-blue-600 italic">Core Dev</span>
+                </div>
+                <p class="text-[10px] font-bold text-slate-400 uppercase leading-tight italic">
+                    Interfaces de alto impacto visual orientadas a la experiencia de usuario y el rendimiento.
                 </p>
             </div>
+        </div>
 
-            <div class="md:w-3/4 grid grid-cols-2 md:grid-cols-4 gap-6">
-                {[
-                    {name: 'Git', desc: 'Version Control'},
-                    {name: 'Postman', desc: 'API Testing'},
-                    {name: 'Insomnia', desc: 'REST Client'},
-                    {name: 'VS Code', desc: 'Main IDE'},
-                    {name: 'DBeaver', desc: 'SQL Tool'},
-                ].map(tool => (
-                    <div class="group/tool cursor-default">
-                        <span class="block text-white font-black text-sm uppercase tracking-tighter group-hover/tool:text-blue-500 transition-colors">
-                            {tool.name}
-                        </span>
-                        <span class="block text-[9px] text-gray-600 font-bold uppercase italic tracking-widest">
-                            {tool.desc}
+        <div class="md:col-span-6 rounded-2xl bg-black p-8 border border-white/10 flex flex-col justify-between group overflow-hidden relative shadow-[inset_0_2px_20px_rgba(255,255,255,0.02)]">
+    
+            <div class="absolute -bottom-6 -right-6 text-[10rem] font-black text-white/2 italic select-none pointer-events-none uppercase">
+                Back
+            </div>
+
+            <div class="relative z-10">
+                <div class="flex justify-between items-center mb-10">
+                    <h4 class="text-3xl font-black uppercase italic tracking-tighter text-blue-400">
+                        Backend <span class="text-white">Ecosystem</span>
+                    </h4>
+                    <div class="flex gap-1">
+                        <span class="w-1.5 h-1.5 bg-blue-500 rounded-full animate-pulse"></span>
+                        <span class="w-1.5 h-1.5 bg-blue-800 rounded-full"></span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                    {FrameworksBackends.map((f) => (
+                        <div class="group/back relative flex flex-col items-center justify-center p-6 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-blue-500/50 hover:bg-blue-500/[0.05] transition-all duration-500 overflow-hidden">
+                            
+                            <div class="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-transparent opacity-0 group-hover/back:opacity-100 transition-opacity duration-500"></div>
+
+                            <div class="relative z-10 flex flex-col items-center">
+                                <img 
+                                    src={`https://cdn.simpleicons.org/${f.toLowerCase().replace(/\s+/g, '')}`} 
+                                    alt={f} 
+                                    class="w-16 h-16 object-contain group-hover/back:scale-110 group-hover/back:-translate-y-1 transition-transform duration-500 drop-shadow-[0_0_8px_rgba(255,255,255,0.1)]" 
+                                />
+                                <span class="text-[10px] font-black uppercase tracking-widest text-slate-500 mt-4 group-hover/back:text-white transition-colors">
+                                    {f}
+                                </span>
+                            </div>
+
+                            <div class="absolute bottom-0 left-0 h-[1px] w-0 bg-blue-500 group-hover/back:w-full transition-all duration-500"></div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            <div class="mt-8">
+                <div class="inline-block px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 mb-4">
+                    <span class="text-[9px] font-black uppercase tracking-tighter text-blue-400 italic">Server Side Proficiency</span>
+                </div>
+                <p class="text-[10px] font-bold text-slate-500 uppercase leading-relaxed max-w-xs">
+                    Desarrollo de APIs robustas, microservicios y gestión de lógica de negocio compleja.
+                </p>
+            </div>
+        </div>
+
+        <div class="md:col-span-6 rounded-2xl bg-slate-900/80 backdrop-blur-xl p-8 border border-white/10 flex flex-col justify-between relative overflow-hidden group">
+  
+            <div class="absolute -top-10 -right-10 text-9xl font-black text-white/2 select-none pointer-events-none italic">
+                OPS
+            </div>
+
+            <div class="relative z-10">
+                <h4 class="text-3xl font-black uppercase italic tracking-tighter mb-10 flex items-center gap-4">
+                Infrastructure <span class="h-0.5 w-12 bg-blue-500"></span>
+                </h4>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                
+                <div class="space-y-6">
+                    <div class="flex items-center gap-2">
+                    <span class="text-[10px] font-black uppercase tracking-[0.3em] text-blue-400">Database & Storage</span>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-3">
+                    {[
+                        { name: 'PostgreSQL', color: 'bg-[#336791]/10' },
+                        { name: 'MongoDB', color: 'bg-[#47A248]/10' },
+                        { name: 'Redis', color: 'bg-[#DC382D]/10' },
+                        { name: 'MicrosoftSQLServer', color: 'bg-[#CC2927]/10' }
+                    ].map(db => (
+                        <div class={`flex flex-col items-center justify-center p-5 rounded-xl border border-white/5 ${db.color} hover:border-white/20 transition-all duration-300 group/db`}>
+                        <img 
+                            src={`https://cdn.simpleicons.org/${db.name.toLowerCase()}`} 
+                            class="w-12 h-12 object-contain group-hover/db:scale-110 group-hover/db:rotate-3 transition-transform" 
+                            alt={db.name}
+                        />
+                        <span class="text-[8px] font-black uppercase mt-3 text-slate-400 group-hover/db:text-white transition-colors">{db.name === 'MicrosoftSQLServer' ? 'SQL Server' : db.name}</span>
+                        </div>
+                    ))}
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="flex items-center gap-2">
+                    <span class="text-[10px] font-black uppercase tracking-[0.3em] text-blue-400">DevOps & Cloud</span>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-3">
+                    {[
+                        { name: 'Docker', color: 'bg-[#2496ED]/10' },
+                        { name: 'Git', color: 'bg-[#F05032]/10' },
+                        { name: 'Nginx', color: 'bg-[#009639]/10' },
+                        { name: 'Linux', color: 'bg-[#FCC624]/10' }
+                    ].map(tool => (
+                        <div class={`flex flex-col items-center justify-center p-5 rounded-xl border border-white/5 ${tool.color} hover:border-white/20 transition-all duration-300 group/tool`}>
+                        <img 
+                            src={`https://cdn.simpleicons.org/${tool.name.toLowerCase()}`} 
+                            class="w-12 h-12 object-contain group-hover/tool:scale-110 group-hover/tool:-rotate-3 transition-transform" 
+                            alt={tool.name}
+                        />
+                        <span class="text-[8px] font-black uppercase mt-3 text-slate-400 group-hover/tool:text-white transition-colors">{tool.name}</span>
+                        </div>
+                    ))}
+                    </div>
+                </div>
+
+                </div>
+            </div>
+
+            <div class="mt-10 pt-6 border-t border-white/5 flex justify-between items-center">
+                <p class="text-[9px] font-bold text-slate-500 uppercase italic">Arquitecturas resilientes y despliegues automatizados.</p>
+                <div class="flex gap-1">
+                    <div class="w-1 h-1 bg-blue-500 rounded-full"></div>
+                    <div class="w-1 h-1 bg-blue-500/50 rounded-full"></div>
+                    <div class="w-1 h-1 bg-blue-500/20 rounded-full"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="md:col-span-12 rounded-2xl bg-white p-8 md:p-12 border border-white/10 shadow-inner">
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/3 text-black">
+                <div class="sticky top-8">
+                    <h4 class="text-5xl font-black uppercase italic leading-[0.8] mb-6">
+                    Dev <br/> <span class="text-blue-600">Tools</span>
+                    </h4>
+                    <p class="text-sm font-bold text-slate-500 uppercase tracking-widest leading-relaxed">
+                    El arsenal técnico que optimiza mi flujo de trabajo, desde el testeo de APIs hasta la virtualización y despliegue.
+                    </p>
+                    <div class="mt-8 flex items-center gap-2">
+                    <span class="h-1 w-12 bg-black"></span>
+                    <span class="text-[10px] font-black uppercase italic">Arsenal de calidad</span>
+                    </div>
+                </div>
+                </div>
+
+                <div class="lg:w-2/3">
+                <div class="columns-2 sm:columns-3 gap-4 space-y-4">
+                    {[
+                    { name: 'Postman', desc: 'API Development' },
+                    { name: 'Insomnia', desc: 'Design & Debug' },
+                    { name: 'Visual Studio Code', desc: 'IDE' },
+                    { name: 'DBeaver', desc: 'Database Manager' },
+                    { name: 'Nginx', desc: 'Web Server' },
+                    { name: 'Git', desc: 'Version Control' },
+                    { name: 'GitHub', desc: 'Cloud Repo' },
+                    { name: 'Linux', desc: 'Dev Environment' }
+                    ].map(tool => (
+                    <div class="break-inside-avoid bg-slate-50 border border-slate-200 rounded-2xl p-6 flex flex-col items-center justify-center group hover:bg-black hover:border-black transition-all duration-500 shadow-sm hover:shadow-xl transform hover:-translate-y-2">
+                        <div class="mb-4 relative">
+                        <img 
+                            src={`https://cdn.simpleicons.org/${tool.name.toLowerCase().replace(/\s+/g, '')}`} 
+                            alt={tool.name} 
+                            class="w-12 h-12 object-contain group-hover:scale-110 transition-transform duration-500" 
+                        />
+                        </div>
+                        <h5 class="text-black group-hover:text-white font-black uppercase text-xs tracking-tighter transition-colors">
+                        {tool.name}
+                        </h5>
+                        <span class="text-[8px] text-slate-400 group-hover:text-blue-400 font-bold uppercase mt-1 transition-colors">
+                        {tool.desc}
                         </span>
                     </div>
-                ))}
+                    ))}
+                </div>
+                </div>
+
             </div>
-          </div>
-
-          <div class="absolute right-0 bottom-0 opacity-[0.03] text-[8rem] font-black italic select-none pointer-events-none -mb-10">
-              TOOLKIT
-          </div>
-      </div>
-
+        </div>
     </div>
   </div>
 </section>

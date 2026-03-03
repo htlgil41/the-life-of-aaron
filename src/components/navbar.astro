@@ -2,16 +2,69 @@
 
 ---
 
-<nav class="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-md border-b border-gray-100">
-  <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+<nav id="navbar" class="sticky top-0 z-50 w-full bg-white/70 backdrop-blur-xl border-b border-gray-200/50 transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
     
     <a href="/" class="group flex items-center gap-1">
-      <span class="text-2xl font-black tracking-tighter text-black uppercase leading-none">
-        The life of 
-        <span class="text-blue-600 inline-block transform group-hover:translate-x-1 transition-transform duration-300">
-          Aaron
-        </span>
+      <span class="text-xl md:text-2xl font-black tracking-tighter text-slate-900 uppercase leading-none">
+        The life of <span class="text-blue-600">Aaron</span>
       </span>
     </a>
+
+    <div class="hidden md:flex items-center gap-8">
+      <a href="#about" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">Sobre mí</a>
+      <a href="#projects" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">Proyectos</a>
+      <a href="#talktome" class="inline-flex items-center px-5 py-2.5 text-sm font-bold text-white bg-slate-900 rounded-full hover:bg-blue-600 transition-all active:scale-95">
+        Hablemos
+      </a>
+    </div>
+
+    <button id="menu-btn" class="md:hidden p-2 text-slate-900 focus:outline-none">
+      <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+      </svg>
+    </button>
   </div>
 </nav>
+
+<div id="mobile-menu" class="fixed inset-0 z-[60] bg-slate-900 translate-x-full transition-transform duration-500 ease-in-out md:hidden">
+  <div class="flex flex-col h-full p-8">
+    <div class="flex justify-end">
+      <button id="close-btn" class="text-white p-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+    
+    <div class="flex flex-col gap-8 mt-12">
+      <a href="#" class="mobile-link text-4xl font-bold text-white/50 hover:text-white transition-colors">Inicio</a>
+      <a href="#" class="mobile-link text-4xl font-bold text-white/50 hover:text-white transition-colors">Sobre mí</a>
+      <a href="#" class="mobile-link text-4xl font-bold text-white/50 hover:text-white transition-colors">Proyectos</a>
+      <a href="#" class="mobile-link text-4xl font-bold text-blue-400">Contacto</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  const menuBtn = document.getElementById('menu-btn');
+  const closeBtn = document.getElementById('close-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
+
+  if (
+    !menuBtn ||
+    !mobileMenu ||
+    !closeBtn
+  ) return;
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.remove('translate-x-full');
+  });
+  const hideMenu = () => {
+    mobileMenu.classList.add('translate-x-full');
+  };
+  closeBtn.addEventListener('click', hideMenu);
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', hideMenu);
+  });
+</script>

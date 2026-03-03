@@ -275,7 +275,7 @@ const projects = [
     },
     {
         title: "Visor Web",
-        category: "Script - App",
+        category: "Aplicacion Web",
         problem: `
             Este proyecto nace de la necesidad de modernizar los consultores en las farmacias MaraPlus. 
             El sistema anterior se limitaba a mostrar precios y una interfaz básica de "monitor de almacén" 
@@ -310,78 +310,127 @@ const projects = [
             "/project_imgs/visor/publicidad.png"
         ]
     },
-
-
-
     {
         title: "Dromarko Ubi",
-        category: "Script - App",
+        category: "Aplicacion Web",
         problem: `
-            
+            En la droguería carece de un sistema de geolocalización interna preciso para su inventario. 
+            La falta de visibilidad sobre la ubicación exacta de productos, lotes o marcas 
+            específicas genera cuellos de botella en la cadena operativa. 
+            Esto se traduce en un incremento en los tiempos de respuesta, errores en el flujo de 
+            picking y packing, y una disminución general de la productividad logística por la 
+            dependencia de la memoria del personal.
         `,
         solution: `
-            
+            Se implementó una aplicación web centralizada diseñada específicamente para 
+            ser operada desde dispositivos PDA. Esta herramienta permite la consulta inmediata
+            de ubicaciones exactas por producto o marca y la asignación dinámica de espacios.
+            Al integrar el inventario total con detalles de ubicación, se eliminó la búsqueda manual, 
+            haciendo que el picking, el packing y los conteos físicos sean procesos mucho más 
+            ágiles y prácticos para el operario.
         `,
         stack: [],
-        time: "8 Dias",
+        time: "2 Dias",
         participation: "",
-        evidence: []
+        evidence: [
+            "/project_imgs/dromarkoubi/dromako_ubi.png",
+            "/project_imgs/dromarkoubi/existencia.png",
+        ]
     },
     {
         title: "AIDromarko",
-        category: "Script - App",
+        category: "Aplicacion Web",
         problem: `
-            
+            En una droguería, la conciliación de inventarios es una prioridad estratégica. 
+            La falta de coincidencia entre el stock físico y el digital genera fugas de 
+            capital y errores en el despacho. Por ello, es vital implementar controles que 
+            aseguren que lo que figura en el sistema sea un reflejo exacto de lo que hay en estante, 
+            minimizando así las pérdidas por mermas, vencimientos o desajustes administrativos.
         `,
         solution: `
-            
+            Se desarrolló una aplicación web integrada directamente con el inventario real de 
+            la droguería, la cual permite gestionar todo el ciclo de control de existencias de
+            manera digital y segura. El sistema funciona bajo una estructura de roles donde el 
+            usuario administrador ejerce el liderazgo, creando los inventarios y asignándolos a 
+            usuarios con el rol de "Contador" para depósitos específicos. Estos contadores 
+            realizan el levantamiento físico producto por producto, registrando las cantidades 
+            en la interfaz para que el administrador pueda supervisar el avance, mandar a recontar 
+            inventarios ya culminados si detecta inconsistencias o aprobar aquellos que estén correctos 
+            para su ajuste final.
+
+            Una vez que un inventario es aprobado, entra en juego un servicio automatizado que 
+            "escucha" la finalización del proceso para capturar la información, procesarla y 
+            traducirla al lenguaje técnico y contable que el sistema de la droguería requiere 
+            para facturar y generar los ajustes de inventario. Este flujo completo —que abarca desde 
+            la creación y asignación, hasta el conteo, la aprobación y el ajuste automático— garantiza 
+            que la información física y la del sistema coincidan plenamente, eliminando errores 
+            manuales y logrando una operatividad mucho más eficiente, rápida y confiable.
         `,
-        stack: [],
-        time: "8 Dias",
-        participation: "",
-        evidence: []
+        stack: [
+            "Node Js",
+            "Express Js",
+            "Kafka",
+            "PostgresSQL"
+        ],
+        time: "20 Dias",
+        participation: "Backend y Frontend",
+        evidence: [
+            "/project_imgs/aidromarko/login.png",
+            "/project_imgs/aidromarko/in_adm.png",
+            "/project_imgs/aidromarko/inventario.png",
+            "/project_imgs/aidromarko/inventario_asgn.png",
+            "/project_imgs/aidromarko/conteo.png",
+            "/project_imgs/aidromarko/revision.png",
+            "/project_imgs/aidromarko/ajuste.png",
+        ]
     },
     {
         title: "MssqlPG Migrate",
         category: "Script - App",
         problem: `
-            
+            Uno de mis mayores desafíos técnicos fue la ejecución de una migración masiva de datos 
+            entre motores heterogéneos, trasladando toda la información privada del Grupo MaraPlus
+            desde Microsoft SQL Server a PostgreSQL.
         `,
         solution: `
-            
+            Desarrollé una herramienta de migración en Go diseñada para procesar grandes volúmenes 
+            de datos mediante el uso de goroutines y canales. El sistema extrae la información en 
+            bloques reducidos (chunks) y los transmite de forma asíncrona a un consumidor que 
+            estructura los objetos para su inserción masiva utilizando la instrucción COPY 
+            de PostgreSQL. Esta arquitectura permite la migración en paralelo de múltiples 
+            bases de datos del Grupo MaraPlus de manera simultánea, optimizando drásticamente 
+            los tiempos de transferencia y el consumo de memoria del servicio.
         `,
         stack: [],
-        time: "8 Dias",
+        time: "2 Dias",
         participation: "",
         evidence: []
     },
     {
-    title: "Exe Plus",
-    category: "Script - App",
-    problem: `
-        
-    `,
-    solution: `
-        
-    `,
-    stack: [],
-    time: "8 Dias",
-    participation: "",
-    evidence: []
-    },
-    {
-    title: "Test",
-    category: "Script - App",
-    problem: `
-        
-    `,
-    solution: `
-        
-    `,
-    stack: [],
-    time: "8 Dias",
-    participation: "",
-    evidence: []
+        title: "Exe Plus",
+        category: "Script - App",
+        problem: `
+            El Grupo MaraPlus operaba con una arquitectura de bases de datos desacopladas, 
+            lo que convertía la generación de reportes globales en un proceso crítico de 
+            alta latencia. La consolidación de información requería acceder manualmente a 
+            cada servidor de forma independiente para luego unificar los datos de manera externa.
+        `,
+        solution: `
+            Desarrollé una solución robusta en TypeScript bajo el entorno de Node.js diseñada 
+            para la generación automatizada de reportes globales. El programa establece conexiones 
+            simultáneas a múltiples bases de datos, extrayendo la información en paralelo para 
+            optimizar los tiempos de respuesta. El sistema procesa y consolida estos grandes 
+            volúmenes de datos en un archivo Excel de alta complejidad, el cual ofrece una 
+            visión dual: un tablero general consolidado y secciones detalladas con la 
+            información específica de cada base de datos del grupo.
+        `,
+        stack: [
+            "Typescript",
+            "Node JS"
+        ],
+        time: "1 Dias",
+        participation: "",
+        evidence: []
     },
 ];
 ---
