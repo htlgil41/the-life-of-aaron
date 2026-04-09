@@ -37,13 +37,12 @@ const projects = [
         stack: [
             "Typescript",
             "NodeJs",
-            "NodeJs",
-            "apollo GraphQL",
-            "Angular", 
-            "PostgreSQL", 
+            "GraphQL",
+            "Angular 16", 
+            "PostgreSQL",
             "Docker"
         ],
-        time: "1 Dia",
+        time: "4 Dia",
         participation: "Backend & Frontend",
         evidence: [
             "/project_imgs/avisor/avisor_login.png",
@@ -74,9 +73,10 @@ const projects = [
             "React",
             "Tailwindcss",
             "PostgreSQL", 
-            "Docker"
+            "Docker",
+            "Nginx"
         ],
-        time: "2 Dia",
+        time: "3 Dia",
         participation: "Backend & Frontend",
         evidence: [
             "/project_imgs/kcl/login.png",
@@ -208,7 +208,7 @@ const projects = [
             "React",
             "PostgreSQL"
         ],
-        time: "1-5 Dia",
+        time: "1 Dia",
         participation: "Backend",
         evidence: [
             "/project_imgs/disprocar/home.png",
@@ -296,7 +296,8 @@ const projects = [
             "NestJs",
             "React",
             "Docker",
-            "Nginx"
+            "Nginx",
+            "SqlServer"
         ],
         time: "8 Dias",
         participation: "Backend & Despliegue",
@@ -329,9 +330,16 @@ const projects = [
             haciendo que el picking, el packing y los conteos físicos sean procesos mucho más 
             ágiles y prácticos para el operario.
         `,
-        stack: [],
-        time: "2 Dias",
-        participation: "",
+        stack: [
+            "Nodejs",
+            "ExpressJS",
+            "Postgres",
+            "Nginx",
+            "Docker",
+            "Angular 17"
+        ],
+        time: "1 Dias",
+        participation: "Banckend & Frontend",
         evidence: [
             "/project_imgs/dromarkoubi/dromako_ubi.png",
             "/project_imgs/dromarkoubi/existencia.png",
@@ -370,9 +378,10 @@ const projects = [
             "Node Js",
             "Express Js",
             "Kafka",
-            "PostgresSQL"
+            "PostgresSQL",
+            "Angular 17"
         ],
-        time: "20 Dias",
+        time: "14 Dias",
         participation: "Backend y Frontend",
         evidence: [
             "/project_imgs/aidromarko/login.png",
@@ -401,9 +410,13 @@ const projects = [
             bases de datos del Grupo MaraPlus de manera simultánea, optimizando drásticamente 
             los tiempos de transferencia y el consumo de memoria del servicio.
         `,
-        stack: [],
+        stack: [
+            "Go",
+            "Postgres",
+            "SqlServer"
+        ],
         time: "2 Dias",
-        participation: "",
+        participation: "Script",
         evidence: []
     },
     {
@@ -429,7 +442,74 @@ const projects = [
             "Node JS"
         ],
         time: "1 Dias",
-        participation: "",
+        participation: "Script",
+        evidence: []
+    },
+    {
+        title: "SshBuntu",
+        category: "Script - App",
+        problem: `
+            Es divertido ver a un equipo tratar de desplegar versiones recientes y actualizaciones
+            de las aplicaciones distribuidas por cada servidor interno de la red dentro de la empresa. Hay por lo menos
+            mas de 10 servidores en MaraPlus la cual cada vez que sale una version x.x.1 de cualquier app interna
+            desplegada habia que ir y conectarse por ssh y orquestar el contenedor docker con su nueva imagen
+            y demas para poder lograr la actualizacion.
+        `,
+        solution: `
+            Facil, una app escrita e Go que se conecta por ssh a cada servidor concurrentemente para asi
+            desplegar la ultima version MAIN del proyecto seleccionado con presionar o ejecutar el programa.
+            
+            Dichas versiones tenian que considerarse productivas lista para cambios ya que una mala
+            version de la app se desplegaba todo en un momento en todos lados teniendo el error en todas
+            las localidades desplegadas.
+        `,
+        stack: [
+            "Go",
+        ],
+        time: "1 Dias",
+        participation: "Script",
+        evidence: []
+    },
+    {
+        title: "Noe",
+        category: "Aplicacion Web",
+        problem: `
+            
+        `,
+        solution: `
+            
+        `,
+        stack: [
+            "NodeJs",
+            "NestJs",
+            "Docker",
+            "SqlServer",
+            "React",
+            "Nginx"
+        ],
+        time: "5",
+        participation: "Backend",
+        evidence: []
+    },
+    {
+        title: "Dove",
+        category: "Aplicacion Web",
+        problem: `
+            
+        `,
+        solution: `
+            
+        `,
+        stack: [
+            "NodeJs",
+            "NestJs",
+            "Docker",
+            "SqlServer",
+            "React",
+            "Nginx"
+        ],
+        time: "5",
+        participation: "Backend",
         evidence: []
     },
 ];
