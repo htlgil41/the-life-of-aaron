@@ -8,7 +8,16 @@ import DialogMessage from '../components/dialogMessage.astro';
 import InfoProjectMaraplus from '../components/infoProjectMaraplus.astro';
 import ProjectMaraplus from '../components/projectMaraplus.astro';
 
-const projects = [
+const projects: {
+    title: string;
+    category: string;
+    problem: string;
+    solution: string;
+    stack: string[];
+    time: string;
+    participation: string;
+    evidence: string[];
+}[] = [
     {
         title: "Avisor",
         category: "App Web",

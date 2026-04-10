@@ -1,0 +1,105 @@
+---
+import '../styles/global.css';
+import Layout from "../layouts/Layout.astro"
+import Navbar from '../components/navbar.astro';
+import Footer from '../components/footer.astro';
+import WelcomeCoop from '../components/welcomeCoop.astro';
+import DialogMessage from '../components/dialogMessage.astro';
+import InfoProjectMaraplus from '../components/infoProjectMaraplus.astro';
+import ProjectMaraplus from '../components/projectMaraplus.astro';
+
+const projects: {
+    title: string;
+    category: string;
+    problem: string;
+    solution: string;
+    stack: string[];
+    time: string;
+    participation: string;
+    evidence: string[];
+}[] = [
+    {
+        title: "Meraki",
+        category: "Aplicacion Web",
+        problem: '',
+        solution: '',
+        stack: [],
+        time: '',
+        participation: '',
+        evidence: [],
+    }
+];
+---
+
+<Layout>
+	<Navbar />
+    <main class="max-w-6xl mx-auto px-6">
+        <WelcomeCoop></WelcomeCoop>
+        <section id="proyectos" class="py-20 bg-white space-y-1">
+            {projects.map((project, index) => (
+                <div class="relative max-w-7xl mx-auto px-6 group">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-1">
+                        {
+                            index % 2 == 0
+                            ?
+                            <ProjectMaraplus
+                                dark={false},
+                                index={index},
+                                title={project.title},
+                                category={project.category}
+                            ></ProjectMaraplus>
+                            <DialogMessage 
+                                index={index} 
+                                title={project.title}
+                                problem={project.problem}
+                                solution={project.solution}
+                                evidence={project.evidence}
+                            ></DialogMessage>
+                            <InfoProjectMaraplus
+                                time={project.time},
+                                participation={project.participation},
+                                tech={project.stack}
+                                dark={index % 2 == 0}
+                            ></InfoProjectMaraplus>
+                            :
+                            <ProjectMaraplus
+                                dark={true},
+                                index={index},
+                                title={project.title},
+                                category={project.category}
+                            ></ProjectMaraplus>
+                            <DialogMessage 
+                                index={index} 
+                                title={project.title}
+                                problem={project.problem}
+                                solution={project.solution}
+                                evidence={project.evidence}
+                            ></DialogMessage>
+                            <InfoProjectMaraplus
+                                time={project.time},
+                                participation={project.participation},
+                                tech={project.stack},
+                                dark={index % 2 == 0}
+                            ></InfoProjectMaraplus>
+                        }
+                    </div>
+                </div>
+            ))}
+        </section>
+    </main>
+    <Footer></Footer>
+</Layout>
+
+<style>
+    img {
+        font-family: 'object-fit: cover;';
+    }
+    .columns-1 > div {
+        animation: reveal 0.6s ease-out forwards;
+        opacity: 0;
+    }
+    @keyframes reveal {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
