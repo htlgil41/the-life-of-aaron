@@ -53,18 +53,19 @@
   const mobileLinks = document.querySelectorAll('.mobile-link');
 
   if (
-    !menuBtn ||
-    !mobileMenu ||
-    !closeBtn
-  ) return;
-  menuBtn.addEventListener('click', () => {
-    mobileMenu.classList.remove('translate-x-full');
-  });
-  const hideMenu = () => {
-    mobileMenu.classList.add('translate-x-full');
-  };
-  closeBtn.addEventListener('click', hideMenu);
-  mobileLinks.forEach(link => {
-    link.addEventListener('click', hideMenu);
-  });
+    menuBtn &
+    mobileMenu &
+    closeBtn &
+  ) {
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.remove('translate-x-full');
+    });
+    const hideMenu = () => {
+      mobileMenu.classList.add('translate-x-full');
+    };
+    closeBtn.addEventListener('click', hideMenu);
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', hideMenu);
+    });
+  }
 </script>
