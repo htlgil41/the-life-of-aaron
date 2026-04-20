@@ -52,11 +52,7 @@
   const mobileMenu = document.getElementById('mobile-menu');
   const mobileLinks = document.querySelectorAll('.mobile-link');
 
-  if (
-    menuBtn &
-    mobileMenu &
-    closeBtn &
-  ) {
+  if (menuBtn & mobileMenu & closeBtn) {
     menuBtn.addEventListener('click', () => {
       mobileMenu.classList.remove('translate-x-full');
     });
